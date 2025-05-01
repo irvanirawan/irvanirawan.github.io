@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irvan Irawan - Portfolio</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom configurations for Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2c5282',
+                        secondary: '#718096',
+                        light: '#ebf8ff',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Portfolio Data -->
+    <script>
+        // Personal Information
+        const personalInfo = {
+            name: "Irvan Irawan",
+            title: "Backend Engineer & FullStack Developer",
+            phone: "(+62) 83872990822",
+            email: "irvanirawanit@gmail.com",
+            address: "Jalan Prabu Kiansantang, 15132, Banten, Indonesia",
+            expectedSalary: "IDR 15,000,000",
+            age: new Date().getFullYear() - 1993,
+            gender: "Male",
+            nationality: "Indonesia",
+            preferredWorkLocation: "Banten, DKI Jakarta - Jakarta Barat",
+            totalExperience: new Date().getFullYear() - 2017 + " years of total experience in Backend Engineer, FullStack Developer, and Software Engineering",
+            profileImage: "foto.jpg"
+        };
+
+        // Experience Data
+        const experiences = [
+            {
+                position: "Backend Developer & DevOps",
+                company: "PT. Makmur Prima Trading",
+                location: "Banten, Indonesia",
+                startDate: "Jun 2019",
+                endDate: "Present",
+                duration: `${new Date().getFullYear() - 2019} years ${new Date().getMonth() - 5} months`,
+                industry: "Computer/Information Technology (Software)",
+                subIndustry: "E-commerce",
+                role: "Staff (non-management & non-supervisor)",
+                projects: [
+                    { name: "Marketplace pasarro.com", tag: "rest-api" },
+                    { name: "E-commerce dreamxskin.com", tag: "rest-api" },
+                    { name: "E-commerce boldehome.com", tag: "rest-api" },
+                    { name: "E-commerce unboxin9.com", tag: "rest-api" },
+                    { name: "E-commerce unboxin9.com", tag: "rest-api" }
+                ],
+                responsibilities: [
+                    "Setup docker (Build Image DockerFile & Build Container docker-compose.yml)",
+                    "Build Rest API (Laravel Lumen, nodejs expressjs, golang gin)",
+                    "Integrasi Service (integrasi payment gateway midtrans, JNE, Sicepat, Gosend, Anteraja, MPXGO, BCA, BNI)",
+                    "Integrasi AWS Cloud Object Storage (Amazon Simple Storage Service)",
+                    "Implementasi SocketIO",
+                    "Implementasi Message Broker RabbitMQ",
+                    "Implementasi Postgresql, MongoDB, Redis, Elasticsearch",
+                    "Deploy update system, troubleshooting, maintenance, fixes & version control system CI/CD bitbucket"
+                ],
+                isCurrent: true
+            },
+            {
+                position: "Fullstack Developer",
+                company: "PT Saint Technologies Indonesia",
+                location: "DKI Jakarta, Indonesia",
+                startDate: "Nov 2017",
+                endDate: "Jun 2019",
+                duration: "1 year 8 months",
+                industry: "Computer/Information Technology (Software)",
+                subIndustry: "IT/Computer - Software",
+                role: "Staff (non-management & non-supervisor)",
+                projects: [
+                    { name: "Fullstack Web Developer - Laravel VPS", tag: "" },
+                    { name: "Web CMS & Back office - Laravel VPS", tag: "" },
+                    { name: "System support forex", tag: "" }
+                ],
+                responsibilities: [],
+                isCurrent: false
+            },
+            {
+                position: "Freelance",
+                company: "siskasoftware.com",
+                location: "",
+                startDate: "Jun 2017",
+                endDate: "Jun 2019",
+                duration: "2 years 1 month",
+                industry: "Computer/Information Technology (Software)",
+                subIndustry: "IT/Computer - Hardware",
+                role: "Staff (non-management & non-supervisor)",
+                projects: [
+                    { name: "Back office - Laravel", tag: "" }
+                ],
+                responsibilities: [],
+                isCurrent: false
+            },
+            {
+                position: "Programmer",
+                company: "PT Penukal Integritas Indonesia",
+                location: "Banten, Indonesia",
+                startDate: "Jun 2017",
+                endDate: "Oct 2017",
+                duration: "5 months",
+                industry: "Computer/Information Technology (Software)",
+                subIndustry: "IT/Computer - Software",
+                role: "Fresh Grad / Less than 1 year experience",
+                projects: [
+                    { name: "Dashboard Backoffice - Laravel", tag: "" }
+                ],
+                responsibilities: [],
+                isCurrent: false
+            }
+        ];
+
+        // Skills Data
+        const skills = {
+            advanced: ["RestfulAPI"],
+            intermediate: ["JavaScript", "Laravel", "Golang", "Docker", "Redis", "MongoDB", "PostgreSQL", "Microservice"],
+            basic: ["RabbitMQ"]
+        };
+
+        // Education Data
+        const education = {
+            degree: "Bachelor's Degree in Engineering (Computer/Telecommunication)",
+            institution: "STMIK Bina Sarana Global, Indonesia",
+            graduationYear: "2016"
+        };
+
+        // Languages Data
+        const languages = [
+            {
+                name: "Bahasa Indonesia",
+                isPrimary: true,
+                proficiency: 8,
+                proficiencyText: "Spoken & Written"
+            },
+            {
+                name: "English",
+                isPrimary: false,
+                proficiency: 6,
+                proficiencyText: "Spoken & Written"
+            }
+        ];
+    </script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="max-w-5xl mx-auto bg-white shadow-lg my-8 rounded-lg overflow-hidden">
+        <!-- Header Section -->
+        <header class="flex flex-col md:flex-row items-center p-6 border-b-2 border-gray-100">
+            <div id="profile-image" class="w-36 h-36 rounded-full object-cover border-4 border-primary mb-6 md:mb-0 md:mr-8"></div>
+            <div class="text-center md:text-left">
+                <h1 id="profile-name" class="text-4xl font-bold text-primary"></h1>
+                <h2 id="profile-title" class="text-xl text-secondary mt-1"></h2>
+                <div class="mt-4 text-gray-600">
+                    <p id="profile-contact"></p>
+                    <p id="profile-address"></p>
+                    <p id="profile-salary"></p>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="p-6">
+            <!-- Experience Section -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-primary pb-3 border-b-2 border-gray-100 mb-6">Experience</h2>
+                <p id="experience-summary" class="text-lg text-gray-600 mb-6"></p>
+                
+                <!-- Timeline container -->
+                <div class="relative ml-0 md:ml-28 lg:ml-32">
+                    <!-- Main Timeline -->
+                    <div class="border-l-4 border-blue-200 ml-6 pl-10 space-y-10 relative" id="experience-timeline">
+                        <!-- Experience items will be inserted here -->
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Skills Section -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-primary pb-3 border-b-2 border-gray-100 mb-6">Skills</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="skills-container">
+                    <!-- Skills will be inserted here -->
+                </div>
+            </section>
+            
+            <!-- Education Section -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-primary pb-3 border-b-2 border-gray-100 mb-6">Education</h2>
+                <div id="education-container">
+                    <!-- Education will be inserted here -->
+                </div>
+            </section>
+            
+            <!-- Languages Section -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-primary pb-3 border-b-2 border-gray-100 mb-6">Languages</h2>
+                <p class="text-gray-600 mb-4">Proficiency level: 0 - Poor, 10 - Excellent</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="languages-container">
+                    <!-- Languages will be inserted here -->
+                </div>
+            </section>
+            
+            <!-- Additional Info Section -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-primary pb-3 border-b-2 border-gray-100 mb-6">Additional Information</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-4 rounded-lg shadow-sm section-salary hidden">
+                        <p class="font-bold text-gray-700">Expected Salary</p>
+                        <p class="text-gray-600" id="additional-salary"></p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <p class="font-bold text-gray-700">Preferred Work Location</p>
+                        <p class="text-gray-600" id="additional-location"></p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- About Me Section -->
+            <section>
+                <h2 class="text-2xl font-bold text-primary pb-3 border-b-2 border-gray-100 mb-6">About Me</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <p class="font-bold text-gray-700">Gender</p>
+                        <p class="text-gray-600" id="about-gender"></p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <p class="font-bold text-gray-700">Age</p>
+                        <p class="text-gray-600" id="about-age"></p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <p class="font-bold text-gray-700">Telephone Number</p>
+                        <p class="text-gray-600" id="about-phone"></p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <p class="font-bold text-gray-700">Address</p>
+                        <p class="text-gray-600" id="about-address"></p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <p class="font-bold text-gray-700">Nationality</p>
+                        <p class="text-gray-600" id="about-nationality"></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="bg-gray-50 p-6 text-center text-gray-500 border-t border-gray-100">
+            <p id="footer-copyright"></p>
+        </footer>
+    </div>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-5 right-5 bg-primary text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-blue-700">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <!-- Populate the portfolio with JavaScript data -->
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+        // Populate header section
+        document.getElementById('profile-image').innerHTML = `<img src="${personalInfo.profileImage}" alt="${personalInfo.name}" class="w-full h-full rounded-full object-cover">`;
+        document.getElementById('profile-name').textContent = personalInfo.name;
+        document.getElementById('profile-title').textContent = personalInfo.title;
+        document.getElementById('profile-contact').innerHTML = `📱 ${personalInfo.phone} | ✉️ ${personalInfo.email}`;
+        document.getElementById('profile-address').innerHTML = `🏠 ${personalInfo.address}`;
+        if(getQueryParam('salary') === 'true') {
+            document.getElementById('profile-salary').innerHTML = `💼 Expected Salary: ${personalInfo.expectedSalary}`;
+        }
+        
+        // Populate experience summary
+        document.getElementById('experience-summary').textContent = personalInfo.totalExperience;
+        
+        // Populate experience timeline
+        const timelineContainer = document.getElementById('experience-timeline');
+        
+        experiences.forEach((exp, index) => {
+            const experienceHTML = `
+                <div class="relative">
+                    <!-- Timeline dot ${exp.isCurrent ? 'with pulse effect' : ''} -->
+                    <div class="absolute -left-[3.25rem] top-0">
+                        <div class="w-6 h-6 bg-blue-500 rounded-full border-4 border-blue-100 z-10"></div>
+                        ${exp.isCurrent ? `<div class="absolute -left-1 -top-1 w-8 h-8 bg-blue-300 rounded-full animate-ping opacity-20"></div>` : ''}
+                    </div>
+                    
+                    <!-- Date tab on the left -->
+                    <div class="absolute -left-[10.5rem] top-0 w-36 text-right hidden md:block">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-1 rounded">
+                            ${exp.startDate} - ${exp.endDate}
+                        </span>
+                        <div class="w-8 h-0.5 bg-blue-200 absolute -right-8 top-1/2 translate-y-0.5"></div>
+                    </div>
+                    
+                    <!-- Mobile visible date -->
+                    <div class="md:hidden bg-blue-100 text-blue-800 text-xs inline-block font-medium px-2.5 py-1 rounded mb-2">
+                        ${exp.startDate} - ${exp.endDate} (${exp.duration})
+                    </div>
+                    
+                    <!-- Content card -->
+                    <div class="bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="p-5 border-b border-gray-100">
+                            <div class="flex flex-col sm:flex-row justify-between">
+                                <div>
+                                    <h3 class="text-xl font-bold text-primary">${exp.position}</h3>
+                                    <p class="text-gray-600 flex items-center">
+                                        <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm3 1h6v2H7V5zm3 4a1 1 0 100 2 1 1 0 000-2zm-3 3h6v2H7v-2z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        ${exp.company} ${exp.location ? '| ' + exp.location : ''}
+                                    </p>
+                                </div>
+                                <span class="hidden md:inline-flex bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-sm items-center mt-2 sm:mt-0">
+                                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    ${exp.startDate} - ${exp.endDate}
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Industry details -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 p-5 bg-gray-50">
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13 7H7v6h6V7z"></path>
+                                    <path fill-rule="evenodd" d="M7 2a1 1 0 012 0v1h2V2a1 1 0 112 0v1h2a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2a2 2 0 01-2 2h-2v1a1 1 0 11-2 0v-1H9v1a1 1 0 11-2 0v-1H5a2 2 0 01-2-2v-2H2a1 1 0 110-2h1V9H2a1 1 0 010-2h1V5a2 2 0 012-2h2V2zM5 5h10v10H5V5z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-600 text-sm">${exp.industry}</span>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-600 text-sm">${exp.subIndustry}</span>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-600 text-sm">${exp.role}</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Project section -->
+                        <div class="p-5">
+                            ${exp.projects.length > 0 ? `
+                                <div class="mb-4">
+                                    <h4 class="font-semibold text-gray-700 mb-3 flex items-center">
+                                        <svg class="w-5 h-5 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        Projects
+                                    </h4>
+                                    <div class="flex flex-wrap gap-4 ml-7">
+                                        ${exp.projects.map(project => `
+                                            <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-md text-sm flex items-center group hover:bg-teal-100 transition-colors duration-200">
+                                                <svg class="w-4 h-4 mr-1.5 text-teal-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                ${project.name}
+                                                ${project.tag ? `<span class="text-xs bg-teal-200 text-teal-800 ml-1 px-1.5 rounded hidden group-hover:inline">${project.tag}</span>` : ''}
+                                            </span>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+                            
+                            ${exp.responsibilities.length > 0 ? `
+                                <!-- Responsibilities -->
+                                <div>
+                                    <h4 class="font-semibold text-gray-700 mb-3 flex items-center">
+                                        <svg class="w-5 h-5 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                                            <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"></path>
+                                        </svg>
+                                        Responsibilities
+                                    </h4>
+                                    <ul class="space-y-2 ml-7">
+                                        ${exp.responsibilities.map(resp => `
+                                            <li class="flex items-start">
+                                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                <span class="text-gray-600">${resp}</span>
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            timelineContainer.innerHTML += experienceHTML;
+        });
+        
+        // Populate skills
+        const skillsContainer = document.getElementById('skills-container');
+        
+        // Advanced skills
+        if (skills.advanced.length > 0) {
+            skillsContainer.innerHTML += `
+                <div>
+                    <h3 class="font-bold text-gray-700 mb-3">Advanced</h3>
+                    <div class="flex flex-wrap gap-2">
+                        ${skills.advanced.map(skill => `<span class="bg-blue-50 text-primary px-3 py-1 rounded-full text-sm">${skill}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Intermediate skills
+        if (skills.intermediate.length > 0) {
+            skillsContainer.innerHTML += `
+                <div>
+                    <h3 class="font-bold text-gray-700 mb-3">Intermediate</h3>
+                    <div class="flex flex-wrap gap-2">
+                        ${skills.intermediate.map(skill => `<span class="bg-blue-50 text-primary px-3 py-1 rounded-full text-sm">${skill}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Basic skills
+        if (skills.basic.length > 0) {
+            skillsContainer.innerHTML += `
+                <div>
+                    <h3 class="font-bold text-gray-700 mb-3">Basic</h3>
+                    <div class="flex flex-wrap gap-2">
+                        ${skills.basic.map(skill => `<span class="bg-blue-50 text-primary px-3 py-1 rounded-full text-sm">${skill}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Populate education
+        document.getElementById('education-container').innerHTML = `
+            <p class="font-bold text-gray-700">${education.degree}</p>
+            <p class="text-gray-600">${education.institution} (${education.graduationYear})</p>
+        `;
+        
+        // Populate languages
+        const languagesContainer = document.getElementById('languages-container');
+        
+        languages.forEach(lang => {
+            const primaryText = lang.isPrimary ? ' (Primary)' : '';
+            const percentage = lang.proficiency * 10;
+            
+            languagesContainer.innerHTML += `
+                <div class="bg-white p-4 rounded-lg shadow-sm">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="font-bold text-gray-700">${lang.name}${primaryText}</div>
+                        <div class="text-blue-600 font-bold">${lang.proficiency}/10</div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-blue-500 h-2.5 rounded-full" style="width: ${percentage}%"></div>
+                        </div>
+                        <div class="ml-3 text-gray-500 text-sm">${lang.proficiencyText}</div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        // Populate additional info
+        document.getElementById('additional-salary').textContent = personalInfo.expectedSalary;
+        document.getElementById('additional-location').textContent = personalInfo.preferredWorkLocation;
+        
+        // Populate about me
+        document.getElementById('about-gender').textContent = personalInfo.gender;
+        document.getElementById('about-age').textContent = `${personalInfo.age} years`;
+        document.getElementById('about-phone').textContent = personalInfo.phone;
+        document.getElementById('about-address').textContent = personalInfo.address;
+        document.getElementById('about-nationality').textContent = personalInfo.nationality;
+        
+        // Populate footer
+        const currentYear = new Date().getFullYear();
+        document.getElementById('footer-copyright').textContent = `© ${currentYear} ${personalInfo.name}. All rights reserved.`;
+        
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0');
+                backToTopButton.classList.add('opacity-100');
+            } else {
+                backToTopButton.classList.remove('opacity-100');
+                backToTopButton.classList.add('opacity-0');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
